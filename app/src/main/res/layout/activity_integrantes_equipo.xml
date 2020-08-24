@@ -19,7 +19,7 @@
         app:srcCompat="@drawable/avatar" />
 
     <TextView
-        android:id="@+id/Jake Sully"
+        android:id="@+id/JakeSully"
         android:layout_width="121dp"
         android:layout_height="24dp"
         android:text="Jake Sully"

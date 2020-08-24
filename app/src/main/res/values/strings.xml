@@ -3,4 +3,10 @@
     <string name="texto__inscripcion">Formulario-Inscripcion</string>
     <string name="integrantes">Integrantes</string>
     <string name="CalcularEdad">Calcular Edad</string>
+    <string name="derechosAutor">Derechos de autor Reservados</string>
+    <string name="FechaNacimiento">Fecha de Nacimiento</string>
+    <string name="calcularEdad">Calcular Edad</string>
+    <string name="noSeleccionoFecha">No ha seleccionado ninguna fecha</string>
+    <string name="fechaIgual">La fecha seleccionada es igual a la actual</string>
+    <string name="fechaFutura">La fecha seleccionada no ha pasado</string>
 </resources>

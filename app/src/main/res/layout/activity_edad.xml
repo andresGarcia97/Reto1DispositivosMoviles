@@ -12,18 +12,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="352dp"
-        android:text="Calcular"
+        android:text="@string/calcularEdad"
+        android:onClick="calcularEdad"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
-        android:id="@+id/fecha"
+    <TextView
+        android:id="@+id/fechaNacimiento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:clickable="true"
         android:ems="10"
+        android:focusable="false"
         android:inputType="date"
+        android:text="@string/FechaNacimiento"
         app:layout_constraintBottom_toTopOf="@+id/calcularEdad"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
