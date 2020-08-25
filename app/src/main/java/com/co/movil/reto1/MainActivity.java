@@ -23,5 +23,15 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, Edad.class);
         startActivity(intent);
     }
+
+    public void lanzarActivityIntegrantes(View view) {
+        Intent intent = new Intent(this, IntegrantesEquipo.class);
+        startActivity(intent);
+    }
+
+    public void lanzarActivityFormulario(View view) {
+        Intent intent = new Intent(this, FormularioIncripcion.class);
+        startActivity(intent);
+    }
 }
 

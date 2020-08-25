@@ -9,4 +9,6 @@
     <string name="noSeleccionoFecha">No ha seleccionado ninguna fecha</string>
     <string name="fechaIgual">La fecha seleccionada es igual a la actual</string>
     <string name="fechaFutura">La fecha seleccionada no ha pasado</string>
+    <string name="rios">Santiago Rios Rios</string>
+    <string name="guata">Andres Garcia Atehortua</string>
 </resources>
