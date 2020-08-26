@@ -13,4 +13,7 @@
     <string name="nombreDuver">Duver Carmona Ochoa</string>
     <string name="nombreAndres">Andres Garcia Atehortua</string>
     <string name="nombreRios">Santiago Rios Rios</string>
+    <string name="faltaNombre">Falta el nombre</string>
+    <string name="faltaApellido">Falta el apellido</string>
+    <string name="faltaTelefono">Falta el Telefono</string>
 </resources>

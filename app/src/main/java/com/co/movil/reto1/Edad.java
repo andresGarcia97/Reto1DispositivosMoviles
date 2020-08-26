@@ -70,11 +70,10 @@ public class Edad extends AppCompatActivity implements DatePickerDialog.OnDateSe
         }
 
         else if(bornDate.get(Calendar.YEAR) <= currentlyDate.get(Calendar.YEAR)  &&
-                bornDate.get(Calendar.MONTH) <= currentlyDate.get(Calendar.MONTH) &&
-                bornDate.get(Calendar.DAY_OF_MONTH) <= currentlyDate.get(Calendar.DAY_OF_MONTH)) {
+                bornDate.get(Calendar.MONTH) <= currentlyDate.get(Calendar.MONTH)) {
             int years = currentlyDate.get(Calendar.YEAR) - bornDate.get(Calendar.YEAR) ;
             int months = currentlyDate.get(Calendar.MONTH) - bornDate.get(Calendar.MONTH);
-            int days = currentlyDate.get(Calendar.DAY_OF_MONTH) - bornDate.get(Calendar.DAY_OF_MONTH) ;
+            int days = Math.abs(currentlyDate.get(Calendar.DAY_OF_MONTH) - bornDate.get(Calendar.DAY_OF_MONTH)) ;
             String age = "Usted tiene: "+years+" AÑOS "+months+" MESES "+days+" DIAS ";
             Toast.makeText(getApplicationContext(),age,Toast.LENGTH_LONG).show();
         }
