@@ -10,5 +10,7 @@
     <string name="fechaIgual">La fecha seleccionada es igual a la actual</string>
     <string name="fechaFutura">La fecha seleccionada no ha pasado</string>
     <string name="rios">Santiago Rios Rios</string>
-    <string name="guata">Andres Garcia Atehortua</string>
+    <string name="nombreDuver">Duver Carmona Ochoa</string>
+    <string name="nombreAndres">Andres Garcia Atehortua</string>
+    <string name="nombreRios">Santiago Rios Rios</string>
 </resources>

@@ -15,6 +15,14 @@ public class IntegrantesEquipo extends AppCompatActivity {
     }
 
     public void mostrarNombreRios(View view) {
-        Toast.makeText(getApplicationContext(),"Santiago Rios Rios",Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),R.string.nombreRios,Toast.LENGTH_LONG).show();
+    }
+
+    public void mostrarNombreAndres(View view) {
+        Toast.makeText(getApplicationContext(),R.string.nombreAndres,Toast.LENGTH_LONG).show();
+    }
+
+    public void mostrarNombreDuver(View view) {
+        Toast.makeText(getApplicationContext(),R.string.nombreDuver,Toast.LENGTH_LONG).show();
     }
 }
