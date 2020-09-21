@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".IntegrantesEquipo">
+    tools:context=".reto1.IntegrantesEquipo">
 
     <ImageView
         android:id="@+id/imageView3"
@@ -57,7 +57,7 @@
         app:layout_constraintVertical_bias="0.301" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageViewAnimal"
         android:layout_width="151dp"
         android:layout_height="469dp"
         android:layout_marginTop="253dp"

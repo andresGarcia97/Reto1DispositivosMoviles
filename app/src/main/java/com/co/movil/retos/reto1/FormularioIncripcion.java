@@ -1,11 +1,13 @@
-package com.co.movil.reto1;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.co.movil.retos.reto1;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.co.movil.retos.R;
 
 public class FormularioIncripcion extends AppCompatActivity {
 
@@ -20,7 +22,7 @@ public class FormularioIncripcion extends AppCompatActivity {
     }
 
     private void alerta(int mensajeToast) {
-        Toast.makeText(getApplicationContext(),mensajeToast,Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), mensajeToast, Toast.LENGTH_SHORT).show();
     }
 
     public void verificarDatos(View view) {
@@ -32,18 +34,17 @@ public class FormularioIncripcion extends AppCompatActivity {
         String apellidoValor = apellido.getText().toString();
         String telefonoValor = telefono.getText().toString();
 
-        if(nombreValor.isEmpty()) {
+        if (nombreValor.isEmpty()) {
             alerta(R.string.faltaNombre);
         }
-        if(apellidoValor.isEmpty()) {
+        if (apellidoValor.isEmpty()) {
             alerta(R.string.faltaApellido);
         }
-        if(telefonoValor.isEmpty()) {
+        if (telefonoValor.isEmpty()) {
             alerta(R.string.faltaTelefono);
-        }
-        else if (!nombreValor.isEmpty() && !apellidoValor.isEmpty() && !telefonoValor.isEmpty()){
-            String informacion = "Su nombre completo es: "+nombreValor+" "+apellidoValor+" Y su telefono es: "+telefonoValor;
-            Toast.makeText(getApplicationContext(),informacion,Toast.LENGTH_SHORT).show();
+        } else if (!nombreValor.isEmpty() && !apellidoValor.isEmpty() && !telefonoValor.isEmpty()) {
+            String informacion = "Su nombre completo es: " + nombreValor + " " + apellidoValor + " Y su telefono es: " + telefonoValor;
+            Toast.makeText(getApplicationContext(), informacion, Toast.LENGTH_SHORT).show();
         }
     }
 }

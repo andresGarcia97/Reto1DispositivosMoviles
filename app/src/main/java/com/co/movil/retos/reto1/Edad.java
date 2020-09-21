@@ -1,6 +1,4 @@
-package com.co.movil.reto1;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.co.movil.retos.reto1;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
@@ -9,9 +7,13 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.co.movil.retos.R;
+
 import java.util.Calendar;
 
-public class Edad extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
+public class Edad extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
     private TextView dateInScreen;
     private Calendar currentlyDate;
@@ -31,7 +33,7 @@ public class Edad extends AppCompatActivity implements DatePickerDialog.OnDateSe
         });
     }
 
-    private void showDatePicker () {
+    private void showDatePicker() {
         Calendar minimeYear = Calendar.getInstance();
         Calendar maximeYear = Calendar.getInstance();
         DatePickerDialog datePickerDialog = new DatePickerDialog(this, this,
@@ -46,36 +48,31 @@ public class Edad extends AppCompatActivity implements DatePickerDialog.OnDateSe
     @Override
     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
         bornDate = Calendar.getInstance();
-        bornDate.set(Calendar.YEAR,year);
-        bornDate.set(Calendar.MONTH ,month);
-        bornDate.set(Calendar.DAY_OF_MONTH,day);
-        String dateSelected = "Fecha:     "+year+" / "+(month + 1)+" / "+day;
+        bornDate.set(Calendar.YEAR, year);
+        bornDate.set(Calendar.MONTH, month);
+        bornDate.set(Calendar.DAY_OF_MONTH, day);
+        String dateSelected = "Fecha:     " + year + " / " + (month + 1) + " / " + day;
         dateInScreen.setText(dateSelected);
     }
 
     public void calcularEdad(View view) {
         currentlyDate = Calendar.getInstance();
-        if(bornDate == null){
-            Toast.makeText(getApplicationContext(),R.string.noSeleccionoFecha,Toast.LENGTH_LONG).show();
-        }
-        else if(bornDate.get(Calendar.YEAR) == currentlyDate.get(Calendar.YEAR)  &&
+        if (bornDate == null) {
+            Toast.makeText(getApplicationContext(), R.string.noSeleccionoFecha, Toast.LENGTH_LONG).show();
+        } else if (bornDate.get(Calendar.YEAR) == currentlyDate.get(Calendar.YEAR) &&
                 bornDate.get(Calendar.MONTH) == currentlyDate.get(Calendar.MONTH) &&
                 bornDate.get(Calendar.DAY_OF_MONTH) == currentlyDate.get(Calendar.DAY_OF_MONTH)) {
-            Toast.makeText(getApplicationContext(),R.string.fechaIgual,Toast.LENGTH_LONG).show();
-        }
-
-        else if(bornDate.get(Calendar.YEAR) >= currentlyDate.get(Calendar.YEAR)  &&
+            Toast.makeText(getApplicationContext(), R.string.fechaIgual, Toast.LENGTH_LONG).show();
+        } else if (bornDate.get(Calendar.YEAR) >= currentlyDate.get(Calendar.YEAR) &&
                 (bornDate.get(Calendar.MONTH) >= currentlyDate.get(Calendar.MONTH) && bornDate.get(Calendar.DAY_OF_MONTH) >= currentlyDate.get(Calendar.DAY_OF_MONTH))) {
-            Toast.makeText(getApplicationContext(),R.string.fechaFutura,Toast.LENGTH_LONG).show();
-        }
-
-        else if(bornDate.get(Calendar.YEAR) <= currentlyDate.get(Calendar.YEAR)  &&
+            Toast.makeText(getApplicationContext(), R.string.fechaFutura, Toast.LENGTH_LONG).show();
+        } else if (bornDate.get(Calendar.YEAR) <= currentlyDate.get(Calendar.YEAR) &&
                 bornDate.get(Calendar.MONTH) <= currentlyDate.get(Calendar.MONTH)) {
-            int years = currentlyDate.get(Calendar.YEAR) - bornDate.get(Calendar.YEAR) ;
+            int years = currentlyDate.get(Calendar.YEAR) - bornDate.get(Calendar.YEAR);
             int months = currentlyDate.get(Calendar.MONTH) - bornDate.get(Calendar.MONTH);
-            int days = Math.abs(currentlyDate.get(Calendar.DAY_OF_MONTH) - bornDate.get(Calendar.DAY_OF_MONTH)) ;
-            String age = "Usted tiene: "+years+" AÑOS "+months+" MESES "+days+" DIAS ";
-            Toast.makeText(getApplicationContext(),age,Toast.LENGTH_LONG).show();
+            int days = Math.abs(currentlyDate.get(Calendar.DAY_OF_MONTH) - bornDate.get(Calendar.DAY_OF_MONTH));
+            String age = "Usted tiene: " + years + " AÑOS " + months + " MESES " + days + " DIAS ";
+            Toast.makeText(getApplicationContext(), age, Toast.LENGTH_LONG).show();
         }
     }
 }

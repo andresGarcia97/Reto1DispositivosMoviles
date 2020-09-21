@@ -1,4 +1,4 @@
-package com.co.movil.reto1;
+package com.co.movil.retos;
 
 import org.junit.Test;
 

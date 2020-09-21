@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.co.movil.reto1">
+    package="com.co.movil.retos">
 
     <application
         android:allowBackup="true"
@@ -9,18 +9,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Edad"
-                  android:parentActivityName=".MainActivity">
-        </activity>
-        <activity android:name=".IntegrantesEquipo"
-                  android:parentActivityName=".MainActivity">
-        </activity>
-        <activity android:name=".FormularioIncripcion"
-            android:parentActivityName=".MainActivity">
-        </activity>
-        <activity android:name=".MainActivity">
+        <activity
+            android:name="com.co.movil.retos.reto2.Animales"
+            android:parentActivityName="com.co.movil.retos.MainActivity" />
+        <activity
+            android:name="com.co.movil.retos.reto1.Edad"
+            android:parentActivityName="com.co.movil.retos.MainActivity" />
+        <activity
+            android:name="com.co.movil.retos.reto1.IntegrantesEquipo"
+            android:parentActivityName="com.co.movil.retos.MainActivity" />
+        <activity
+            android:name="com.co.movil.retos.reto1.FormularioIncripcion"
+            android:parentActivityName="com.co.movil.retos.MainActivity" />
+        <activity android:name="com.co.movil.retos.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

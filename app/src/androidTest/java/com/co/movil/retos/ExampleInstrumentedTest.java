@@ -1,4 +1,4 @@
-package com.co.movil.reto1;
+package com.co.movil.retos;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.co.movil.reto1", appContext.getPackageName());
+        assertEquals("com.co.movil.retos", appContext.getPackageName());
     }
 }
