@@ -19,4 +19,5 @@
     <string name="nombre_animal">inserte el nombre del animal</string>
     <string name="descripcion">inserte aqui la descripcion</string>
     <string name="animales">Lista Animales</string>
+    <string name="buscar">Animales</string>
 </resources>

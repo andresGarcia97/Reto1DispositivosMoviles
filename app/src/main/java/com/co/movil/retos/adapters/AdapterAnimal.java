@@ -5,18 +5,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.co.movil.retos.R;
 import com.co.movil.retos.clases.Animal;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterAnimal extends BaseAdapter {
 
-    private final List<Animal> listaAnimalesOut;
-    private final List<Animal> listaAnimalesIn;
+    private List<Animal> listaAnimalesOut;
+    private List<Animal> listaAnimalesIn;
     private final LayoutInflater inflater;
 
     public AdapterAnimal(Context context, List<Animal> animales) {
@@ -34,6 +36,42 @@ public class AdapterAnimal extends BaseAdapter {
     @Override
     public Animal getItem(int i) {
         return listaAnimalesOut.get(i);
+    }
+
+    public Filter getFilter() {
+
+        Filter filter = new Filter() {
+            @SuppressWarnings("unchecked")
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                listaAnimalesOut = (List<Animal>) results.values;
+                notifyDataSetChanged();
+            }
+
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                FilterResults results = new FilterResults();
+                List<Animal> FilteredArrList = new ArrayList<>();
+                if (listaAnimalesIn == null) {
+                    listaAnimalesIn = new ArrayList<>(listaAnimalesOut);
+                }
+                if (constraint == null || constraint.length() == 0) {
+                    results.count = listaAnimalesIn.size();
+                    results.values = listaAnimalesIn;
+                } else {
+                    constraint = constraint.toString().toLowerCase();
+                    for (int i = 0; i < listaAnimalesIn.size(); i++) {
+                        if (listaAnimalesIn.get(i).getNombre().toLowerCase().contains(constraint.toString())) {
+                            FilteredArrList.add(listaAnimalesIn.get(i));
+                        }
+                    }
+                    results.count = FilteredArrList.size();
+                    results.values = FilteredArrList;
+                }
+                return results;
+            }
+        };
+        return filter;
     }
 
     @Override
