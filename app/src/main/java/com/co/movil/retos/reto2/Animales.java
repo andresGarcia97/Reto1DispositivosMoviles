@@ -1,12 +1,16 @@
 package com.co.movil.retos.reto2;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.co.movil.retos.R;
 import com.co.movil.retos.adapters.AdapterAnimal;
@@ -21,6 +25,9 @@ public class Animales extends AppCompatActivity {
     public EditText editTextTextBuscarAnimal;
     private AdapterAnimal adapterAnimal;
     public List<Animal> animales;
+    private MediaPlayer mp;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,17 +35,19 @@ public class Animales extends AppCompatActivity {
         setContentView(R.layout.activity_animales);
         listViewAnimales = findViewById(R.id.listViewAnimales);
         editTextTextBuscarAnimal = findViewById(R.id.editTextTextBuscarAnimal);
+        mp = null;
         crearListaAnimales();
         buscarAnimal();
+        reproducirSonido();
     }
 
     private void crearListaAnimales() {
         animales = new ArrayList<>();
-        animales.add(new Animal(R.drawable.conejo, "Conejo", R.drawable.avatar, "Herviboro, que sirven como base de la cadena trofica"));
-        animales.add(new Animal(R.drawable.lobo, "Lobo", R.drawable.avatar, "Carnivoro que habita en bosques y montañas en manadas"));
-        animales.add(new Animal(R.drawable.mapache, "Mapache", R.drawable.avatar, "Omnivoro, nocturno con malas costumbres de saquear"));
-        animales.add(new Animal(R.drawable.zorro, "Zorro", R.drawable.avatar, "Carnivoro, muy inteligente que actua en solitario"));
-        animales.add(new Animal(R.drawable.perro, "Perro", R.drawable.avatar, "El perro es un animal mamífero y cuadrúpedo que convive con el hombre como una mascota."));
+        animales.add(new Animal(R.drawable.conejo, "conejo", R.raw.conejo, "Herviboro, que sirven como base de la cadena trofica"));
+        animales.add(new Animal(R.drawable.lobo, "lobo", R.raw.lobo, "Carnivoro que habita en bosques y montañas en manadas"));
+        animales.add(new Animal(R.drawable.mapache, "Mapache", R.raw.mapache, "Omnivoro, nocturno con malas costumbres de saquear"));
+        animales.add(new Animal(R.drawable.zorro, "Zorro", R.raw.zorro, "Carnivoro, muy inteligente que actua en solitario"));
+        animales.add(new Animal(R.drawable.perro, "perro", R.raw.perro, "El perro es un animal mamífero y cuadrúpedo que convive con el hombre como una mascota."));
 
         adapterAnimal = new AdapterAnimal(getApplicationContext(), animales);
         listViewAnimales.setAdapter(adapterAnimal);
@@ -64,6 +73,20 @@ public class Animales extends AppCompatActivity {
     }
 
     private void reproducirSonido() {
+
+        listViewAnimales.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                if(mp !=null){
+                    mp.stop();
+                }
+                mp = MediaPlayer.create(getApplicationContext(), animales.get(i).getSonido());
+                mp.start();
+            }
+
+        });
+
+
 
     }
 
