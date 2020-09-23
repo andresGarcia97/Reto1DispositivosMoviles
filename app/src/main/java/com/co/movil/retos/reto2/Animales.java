@@ -38,7 +38,7 @@ public class Animales extends AppCompatActivity {
         animales.add(new Animal(R.drawable.lobo, "Lobo", R.drawable.avatar, "Carnivoro que habita en bosques y montañas en manadas"));
         animales.add(new Animal(R.drawable.mapache, "Mapache", R.drawable.avatar, "Omnivoro, nocturno con malas costumbres de saquear"));
         animales.add(new Animal(R.drawable.zorro, "Zorro", R.drawable.avatar, "Carnivoro, muy inteligente que actua en solitario"));
-        animales.add(new Animal(R.drawable.perezozo, "Perezoso", R.drawable.avatar, "Omnivoro, el animal más lento del mundo"));
+        animales.add(new Animal(R.drawable.perro, "Perro", R.drawable.avatar, "El perro es un animal mamífero y cuadrúpedo que convive con el hombre como una mascota."));
 
         adapterAnimal = new AdapterAnimal(getApplicationContext(), animales);
         listViewAnimales.setAdapter(adapterAnimal);
@@ -61,6 +61,10 @@ public class Animales extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void reproducirSonido() {
+
     }
 
 }
