@@ -20,4 +20,16 @@
     <string name="descripcion">inserte aqui la descripcion</string>
     <string name="animales">Lista Animales</string>
     <string name="buscar">Animales</string>
+    <string name="parqueadero">Parqueadero</string>
+    <string name="registroTarifas">Registrar Tarifas</string>
+    <string name="registroVehiculos">Registrar Vehiculos</string>
+    <string name="generarReporte">Generar Reporte</string>
+    <string name="listarVehiculos">Listar Vehiculos</string>
+    <string name="TVregistroTarifa">Registrar Tarifas</string>
+    <string name="guardarTarifa">Guardar</string>
+    <string name="valorTarifa">Valor Tarifa</string>
+    <string name="tipoTarifa">Tipo de Vehiculo</string>
+    <string name="campoRequerido">Campo Vacio</string>
+    <string name="campoMayorQueCero">Debe ser mayor que cero</string>
+    <string name="insercionTarifa">Tarifa Creada con exito</string>
 </resources>

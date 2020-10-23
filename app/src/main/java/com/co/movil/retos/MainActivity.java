@@ -11,6 +11,7 @@ import com.co.movil.retos.reto1.Edad;
 import com.co.movil.retos.reto1.FormularioIncripcion;
 import com.co.movil.retos.reto1.IntegrantesEquipo;
 import com.co.movil.retos.reto2.Animales;
+import com.co.movil.retos.reto3.Parqueadero;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void mostrarDerechos(View view) {
-        Toast.makeText(getApplicationContext(), R.string.derechosAutor, Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), R.string.derechosAutor, Toast.LENGTH_SHORT).show();
     }
 
     public void lanzarActivityCalcularEdad(View view) {
@@ -41,6 +42,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void lanzarActivityAnimales(View view) {
         Intent intent = new Intent(this, Animales.class);
+        startActivity(intent);
+    }
+
+    public void lanzarActivityParqueadero(View view) {
+        Intent intent = new Intent(this, Parqueadero.class);
         startActivity(intent);
     }
 }

@@ -9,19 +9,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".reto3.Tarifas"></activity>
         <activity
-            android:name="com.co.movil.retos.reto2.Animales"
-            android:parentActivityName="com.co.movil.retos.MainActivity" />
+            android:name=".reto3.Parqueadero"
+            android:parentActivityName=".MainActivity"></activity>
         <activity
-            android:name="com.co.movil.retos.reto1.Edad"
-            android:parentActivityName="com.co.movil.retos.MainActivity" />
+            android:name=".reto2.Animales"
+            android:parentActivityName=".MainActivity" />
         <activity
-            android:name="com.co.movil.retos.reto1.IntegrantesEquipo"
-            android:parentActivityName="com.co.movil.retos.MainActivity" />
+            android:name=".reto1.Edad"
+            android:parentActivityName=".MainActivity" />
         <activity
-            android:name="com.co.movil.retos.reto1.FormularioIncripcion"
-            android:parentActivityName="com.co.movil.retos.MainActivity" />
-        <activity android:name="com.co.movil.retos.MainActivity">
+            android:name=".reto1.IntegrantesEquipo"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".reto1.FormularioIncripcion"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

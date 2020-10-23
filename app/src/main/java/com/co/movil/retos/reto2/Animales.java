@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 
 import com.co.movil.retos.R;
 import com.co.movil.retos.adapters.AdapterAnimal;
@@ -26,7 +25,6 @@ public class Animales extends AppCompatActivity {
     private AdapterAnimal adapterAnimal;
     public List<Animal> animales;
     private MediaPlayer mp;
-
 
 
     @Override
@@ -73,21 +71,16 @@ public class Animales extends AppCompatActivity {
     }
 
     private void reproducirSonido() {
-
         listViewAnimales.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                if(mp !=null){
+                if (mp != null) {
                     mp.stop();
                 }
                 mp = MediaPlayer.create(getApplicationContext(), animales.get(i).getSonido());
                 mp.start();
             }
-
         });
-
-
-
     }
 
 }
