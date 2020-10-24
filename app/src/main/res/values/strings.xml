@@ -21,7 +21,7 @@
     <string name="animales">Lista Animales</string>
     <string name="buscar">Animales</string>
     <string name="parqueadero">Parqueadero</string>
-    <string name="registroTarifas">Registrar Tarifas</string>
+    <string name="registroTarifas">Tarifas</string>
     <string name="registroVehiculos">Registrar Vehiculos</string>
     <string name="generarReporte">Generar Reporte</string>
     <string name="listarVehiculos">Listar Vehiculos</string>
@@ -32,4 +32,8 @@
     <string name="campoRequerido">Campo Vacio</string>
     <string name="campoMayorQueCero">Debe ser mayor que cero</string>
     <string name="insercionTarifa">Tarifa Creada con exito</string>
+    <string name="listaTarifas">Lista Tarifas</string>
+    <string name="sinTarifas">No hay tarifas registradas</string>
+    <string name="placa">Placa</string>
+    <string name="ingresarVehiculo">Ingresar</string>
 </resources>

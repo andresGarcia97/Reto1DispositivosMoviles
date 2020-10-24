@@ -9,10 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".reto3.Tarifas"></activity>
+        <activity android:name=".reto3.IngresoVehiculo"></activity>
+        <activity
+            android:name=".reto3.listaTarifas"
+            android:parentActivityName=".reto3.Tarifas" />
+        <activity
+            android:name=".reto3.Tarifas"
+            android:parentActivityName=".reto3.Parqueadero" />
         <activity
             android:name=".reto3.Parqueadero"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".reto2.Animales"
             android:parentActivityName=".MainActivity" />

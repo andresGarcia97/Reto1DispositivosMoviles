@@ -1,5 +1,6 @@
 package com.co.movil.retos.reto3;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -16,10 +17,8 @@ public class Tarifas extends AppCompatActivity {
 
     protected EditText editTextTextTipoTarifa;
     protected EditText editTextNumberDecimalTarifa;
-    private DataBaseHelper db;
     private String tipo;
     private String valor;
-    private Double valorDouble;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +43,7 @@ public class Tarifas extends AppCompatActivity {
         if ("".equals(valor)) {
             editTextNumberDecimalTarifa.setError(getString(R.string.campoRequerido));
             return null;
-        } else if (Double.parseDouble(editTextNumberDecimalTarifa.getText().toString()) == 0) {
+        } else if (Double.parseDouble(editTextNumberDecimalTarifa.getText().toString()) <= 0) {
             editTextNumberDecimalTarifa.setError(getString(R.string.campoMayorQueCero));
             return null;
         } else {
@@ -60,6 +59,11 @@ public class Tarifas extends AppCompatActivity {
         if (tarifaInsert != null) {
             new RepositoryTarifa().execute(tarifaInsert);
         }
+    }
+
+    public void lanzarActivityListaTarifas(View view) {
+        Intent intent = new Intent(this, listaTarifas.class);
+        startActivity(intent);
     }
 
     private class RepositoryTarifa extends AsyncTask<TarifaEntity, Void, Void> {
