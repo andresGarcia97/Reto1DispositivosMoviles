@@ -13,11 +13,15 @@ import java.util.List;
 public class TarifaConverter {
 
     @RequiresApi(api = Build.VERSION_CODES.N)
-    public List<Tarifa> convertTo (List<TarifaEntity> tarifasEntity){
+    public List<Tarifa> convertTo(List<TarifaEntity> tarifasEntity) {
         final List<Tarifa> tarifas = new ArrayList<>();
         tarifasEntity.forEach(tarifa -> {
-            tarifas.add(new Tarifa(tarifa.getTipoVehiculo(),tarifa.getValor()));
+            tarifas.add(new Tarifa(tarifa.getIdTarifa(), tarifa.getTipoVehiculo(), tarifa.getValor()));
         });
         return tarifas;
+    }
+
+    public Tarifa convertTo(TarifaEntity tarifa){
+        return new Tarifa(tarifa.getIdTarifa(), tarifa.getTipoVehiculo(), tarifa.getValor());
     }
 }

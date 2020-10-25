@@ -22,7 +22,7 @@
     <string name="buscar">Animales</string>
     <string name="parqueadero">Parqueadero</string>
     <string name="registroTarifas">Tarifas</string>
-    <string name="registroVehiculos">Registrar Vehiculos</string>
+    <string name="registroVehiculos">Registrar Ingreso/Salida</string>
     <string name="generarReporte">Generar Reporte</string>
     <string name="listarVehiculos">Listar Vehiculos</string>
     <string name="TVregistroTarifa">Registrar Tarifas</string>
@@ -36,4 +36,12 @@
     <string name="sinTarifas">No hay tarifas registradas</string>
     <string name="placa">Placa</string>
     <string name="ingresarVehiculo">Ingresar</string>
+    <string name="registrarSalida">Registrar Salida</string>
+    <string name="buscarPlaca">Buscar</string>
+    <string name="seleccionarTarifa">Debe selecionar una tarifa</string>
+    <string name="registroExitoso">Ingreso Exitoso</string>
+    <string name="salidaRegistrada">Salida Registrada</string>
+    <string name="busqueVehiculo">Primero busque un vehiculo</string>
+    <string name="cantidadHoras">Total Horas :</string>
+    <string name="cantidadPagar">Total Cobro :</string>
 </resources>

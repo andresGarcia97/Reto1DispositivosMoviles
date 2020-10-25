@@ -26,12 +26,11 @@ public class DateUtil {
     }
 
     public static String convertDateToStringNotHour(Date date) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT, Locale.ENGLISH);
+        SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT_HORA, Locale.ENGLISH);
         return dateFormat.format(date);
     }
 
-
-    public static String timeFromDates(String fechaInicialString, String fechaFinalString) throws ParseException {
+    public static int timeFromDates(String fechaInicialString, String fechaFinalString) throws ParseException {
         SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT_HORA, Locale.ENGLISH);
         Date fechaInicial = dateFormat.parse(fechaInicialString);
         Date fechaFinal = dateFormat.parse(fechaFinalString);
@@ -41,6 +40,7 @@ public class DateUtil {
         int dias = 0;
         int horas = 0;
         int minutos = 0;
+        int retorno = 0;
         if (diferencia > 86400) {
             dias = (int) Math.floor(diferencia / 86400);
             diferencia = diferencia - (dias * 86400);
@@ -53,9 +53,13 @@ public class DateUtil {
             minutos = (int) Math.floor(diferencia / 60);
             diferencia = diferencia - (minutos * 60);
         }
-        String tiempoCalculado = dias + " dias, " + horas + " horas, " + minutos + " minutos y " + diferencia + " segundos";
-        return tiempoCalculado;
-
+        if (dias >= 1) {
+            dias = dias * 24;
+            retorno = dias + horas;
+        } else {
+            retorno = horas;
+        }
+        return retorno;
     }
 
     public static String getCurrenDate() {

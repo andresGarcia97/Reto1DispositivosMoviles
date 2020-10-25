@@ -32,6 +32,6 @@ public class VehiculoEntity {
     @ColumnInfo(name = "fechaSalida")
     private String fechaSalida;
 
-    @ColumnInfo(name = "montoCalculado")
-    private Double montoCalculado;
+    @ColumnInfo(name = "valorPaqueadero")
+    private Double valorParqueadero;
 }

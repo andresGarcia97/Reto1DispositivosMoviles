@@ -11,11 +11,13 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Tarifa {
 
+    private Integer idTarifa;
     private String tipo;
     private Double valor;
 
-    public Tarifa(String tipoVehiculo, Double valor) {
+    public Tarifa(Integer idTarifa, String tipoVehiculo, Double valor) {
         super();
+        this.idTarifa = idTarifa;
         this.tipo = tipoVehiculo;
         this.valor = valor;
     }
@@ -23,6 +25,6 @@ public class Tarifa {
     @NonNull
     @Override
     public String toString() {
-        return "Tipo de Vehiculo: ".concat(tipo).concat("  Valor: ").concat(Double.toString(valor));
+        return tipo.concat(":").concat(Double.toString(valor));
     }
 }

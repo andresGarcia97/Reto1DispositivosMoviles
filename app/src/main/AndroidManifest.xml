@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".reto3.IngresoVehiculo"></activity>
+        <activity
+            android:name=".reto3.IngresoVehiculo"
+            android:parentActivityName=".reto3.Parqueadero">
+        </activity>
         <activity
             android:name=".reto3.listaTarifas"
             android:parentActivityName=".reto3.Tarifas" />
@@ -34,7 +37,6 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
