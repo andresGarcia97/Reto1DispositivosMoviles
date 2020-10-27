@@ -1,6 +1,6 @@
 package com.co.movil.retos.clases;
 
-import java.util.Calendar;
+import java.util.Date;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,8 +12,17 @@ import lombok.Setter;
 public class Vehiculo {
 
     private Integer idVehiculo;
-    private Calendar fechaEntrada;
+    private Date fechaEntrada;
     private String placa;
-    private Calendar fechaSalida;
+    private Date fechaSalida;
     private Double montoCalculado;
+
+    public Vehiculo(Integer idVehiculo, Date fechaEntrada, String placa, Date fechaSalida, Double montoCalculado) {
+        super();
+        this.idVehiculo = idVehiculo;
+        this.fechaEntrada = fechaEntrada;
+        this.placa = placa;
+        this.fechaSalida = fechaSalida;
+        this.montoCalculado = montoCalculado;
+    }
 }

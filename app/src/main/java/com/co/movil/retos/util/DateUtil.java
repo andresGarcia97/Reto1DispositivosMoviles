@@ -11,8 +11,6 @@ import java.util.Locale;
 public class DateUtil {
 
     public static String DATE_FORMAT_HORA = "yyyy-MM-dd HH:mm:ss";
-    static String DATE_FORMAT = "yyyy-MM-dd";
-
 
     public static Date convertStringToDate(String stringDate) {
         Date date = null;
@@ -25,7 +23,7 @@ public class DateUtil {
         return date;
     }
 
-    public static String convertDateToStringNotHour(Date date) {
+    public static String convertDateToString(Date date) {
         SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT_HORA, Locale.ENGLISH);
         return dateFormat.format(date);
     }

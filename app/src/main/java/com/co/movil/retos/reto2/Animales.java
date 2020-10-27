@@ -71,15 +71,12 @@ public class Animales extends AppCompatActivity {
     }
 
     private void reproducirSonido() {
-        listViewAnimales.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                if (mp != null) {
-                    mp.stop();
-                }
-                mp = MediaPlayer.create(getApplicationContext(), animales.get(i).getSonido());
-                mp.start();
+        listViewAnimales.setOnItemClickListener((adapterView, view, i, l) -> {
+            if (mp != null) {
+                mp.stop();
             }
+            mp = MediaPlayer.create(getApplicationContext(), animales.get(i).getSonido());
+            mp.start();
         });
     }
 

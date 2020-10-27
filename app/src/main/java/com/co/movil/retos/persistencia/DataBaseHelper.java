@@ -18,7 +18,7 @@ import com.co.movil.retos.persistencia.dao.IVehiculoDAO;
 
 public abstract class DataBaseHelper extends RoomDatabase {
 
-    public static final int VERSION_BASE_DATOS = 2;
+    public static final int VERSION_BASE_DATOS = 3;
     public static final String NOMBRE_BASE_DATOS = "retos";
     private static DataBaseHelper INSTANCIA;
 

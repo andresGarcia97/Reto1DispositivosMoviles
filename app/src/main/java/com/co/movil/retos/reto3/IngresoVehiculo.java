@@ -18,7 +18,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.co.movil.retos.R;
 import com.co.movil.retos.clases.Tarifa;
-import com.co.movil.retos.converters.TarifaConverter;
+import com.co.movil.retos.converter.Converter;
 import com.co.movil.retos.entities.VehiculoEntity;
 import com.co.movil.retos.persistencia.DataBaseHelper;
 import com.co.movil.retos.util.DateUtil;
@@ -71,6 +71,7 @@ public class IngresoVehiculo extends AppCompatActivity {
         buttonIngresar.setVisibility(View.GONE);
         buttonSalida.setVisibility(View.GONE);
         layoutDatos.setVisibility(View.GONE);
+        editTextTextIngresoPlaca.setText("");
     }
 
     private void spinnerOnItemSelected() {
@@ -97,8 +98,8 @@ public class IngresoVehiculo extends AppCompatActivity {
     }
 
     private void showInfoDataLayout() {
-        fechaSalida = DateUtil.convertDateToStringNotHour(new Date());
-        TarifaConverter converter = new TarifaConverter();
+        fechaSalida = DateUtil.convertDateToString(new Date());
+        Converter converter = new Converter();
         tarifaSalida = converter.convertTo(db.transaccionesTarifa().selectByIdTarifa(vehiculoIngresar.getIdTarifa()));
         int horas = 0;
         try {
@@ -121,7 +122,7 @@ public class IngresoVehiculo extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void cargarSpinner() {
-        TarifaConverter converter = new TarifaConverter();
+        Converter converter = new Converter();
         listaTarifas = converter.convertTo(db.transaccionesTarifa().listar());
         if (listaTarifas.isEmpty()) {
             Toast.makeText(getApplication(), R.string.sinTarifas, Toast.LENGTH_SHORT).show();
@@ -137,7 +138,7 @@ public class IngresoVehiculo extends AppCompatActivity {
     }
 
     public void buscarVehiculo(View view) {
-        vehiculoIngresar = db.transaccionesVehiculo().findByPLaca(editTextTextIngresoPlaca.getText().toString(),0.0);
+        vehiculoIngresar = db.transaccionesVehiculo().findByPLaca(editTextTextIngresoPlaca.getText().toString());
         if (vehiculoIngresar == null) {
             showComponentesIngreso();
         } else {
@@ -153,7 +154,7 @@ public class IngresoVehiculo extends AppCompatActivity {
             vehiculoIngresar = new VehiculoEntity();
             vehiculoIngresar.setPlaca(editTextTextIngresoPlaca.getText().toString());
             vehiculoIngresar.setIdTarifa(tarifa.getIdTarifa());
-            vehiculoIngresar.setFechaEntrada(DateUtil.convertDateToStringNotHour(new Date()));
+            vehiculoIngresar.setFechaEntrada(DateUtil.convertDateToString(new Date()));
             vehiculoIngresar.setValorParqueadero(0.0);
             new InsercionVehiculo().execute(vehiculoIngresar);
             vehiculoIngresar = null;
@@ -166,7 +167,6 @@ public class IngresoVehiculo extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), R.string.busqueVehiculo, Toast.LENGTH_SHORT).show();
         } else {
             vehiculoSacar = new VehiculoEntity();
-            vehiculoSacar.setIdVehiculo(vehiculoIngresar.getIdTarifa());
             vehiculoSacar.setPlaca(vehiculoIngresar.getPlaca());
             vehiculoSacar.setIdTarifa(vehiculoIngresar.getIdTarifa());
             vehiculoSacar.setFechaEntrada(vehiculoIngresar.getFechaEntrada());
@@ -203,7 +203,7 @@ public class IngresoVehiculo extends AppCompatActivity {
 
         @Override
         protected Void doInBackground(VehiculoEntity... vehiculoEntities) {
-            DataBaseHelper.getSimpleDB(getApplicationContext()).transaccionesVehiculo().update(vehiculoEntities[0]);
+            DataBaseHelper.getSimpleDB(getApplicationContext()).transaccionesVehiculo().insert(vehiculoEntities[0]);
             return null;
         }
 

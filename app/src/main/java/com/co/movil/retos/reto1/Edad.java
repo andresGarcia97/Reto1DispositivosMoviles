@@ -25,12 +25,7 @@ public class Edad extends AppCompatActivity implements DatePickerDialog.OnDateSe
         currentlyDate = Calendar.getInstance();
         setContentView(R.layout.activity_edad);
         dateInScreen = findViewById(R.id.fechaNacimiento);
-        findViewById(R.id.fechaNacimiento).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showDatePicker();
-            }
-        });
+        findViewById(R.id.fechaNacimiento).setOnClickListener(view -> showDatePicker());
     }
 
     private void showDatePicker() {

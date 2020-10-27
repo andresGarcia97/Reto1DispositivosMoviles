@@ -28,7 +28,7 @@
     <string name="TVregistroTarifa">Registrar Tarifas</string>
     <string name="guardarTarifa">Guardar</string>
     <string name="valorTarifa">Valor Tarifa</string>
-    <string name="tipoTarifa">Tipo de Vehiculo</string>
+    <string name="tipoTarifa">Fecha de Entrada</string>
     <string name="campoRequerido">Campo Vacio</string>
     <string name="campoMayorQueCero">Debe ser mayor que cero</string>
     <string name="insercionTarifa">Tarifa Creada con exito</string>
@@ -44,4 +44,9 @@
     <string name="busqueVehiculo">Primero busque un vehiculo</string>
     <string name="cantidadHoras">Total Horas :</string>
     <string name="cantidadPagar">Total Cobro :</string>
+    <string name="insertePlaca">Placa:</string>
+    <string name="valorTotal">Total</string>
+    <string name="vehiculosFacturados">Vehiculos que ingresaron</string>
+    <string name="tipoTarifaIngreso">Tipo Tarifa</string>
+    <string name="totalParqueadero">"Total: "</string>
 </resources>

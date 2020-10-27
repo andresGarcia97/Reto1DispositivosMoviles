@@ -36,11 +36,11 @@ public class Tarifas extends AppCompatActivity {
         tipo = editTextTextTipoTarifa.getText().toString();
         valor = editTextNumberDecimalTarifa.getText().toString();
 
-        if ("".equals(tipo)) {
+        if (tipo.isEmpty()) {
             editTextTextTipoTarifa.setError(getString(R.string.campoRequerido));
             return null;
         }
-        if ("".equals(valor)) {
+        if (valor.isEmpty()) {
             editTextNumberDecimalTarifa.setError(getString(R.string.campoRequerido));
             return null;
         } else if (Double.parseDouble(editTextNumberDecimalTarifa.getText().toString()) <= 0) {
@@ -54,11 +54,18 @@ public class Tarifas extends AppCompatActivity {
         }
     }
 
+    private void resetCampos() {
+        editTextTextTipoTarifa.setText("");
+        editTextNumberDecimalTarifa.setText("");
+    }
+
     public void guardarTarifa(View view) {
         TarifaEntity tarifaInsert = comprobarDatos();
         if (tarifaInsert != null) {
             new RepositoryTarifa().execute(tarifaInsert);
+            resetCampos();
         }
+
     }
 
     public void lanzarActivityListaTarifas(View view) {

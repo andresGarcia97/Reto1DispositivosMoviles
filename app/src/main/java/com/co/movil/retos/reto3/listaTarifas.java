@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.co.movil.retos.R;
 import com.co.movil.retos.clases.Tarifa;
-import com.co.movil.retos.converters.TarifaConverter;
+import com.co.movil.retos.converter.Converter;
 import com.co.movil.retos.persistencia.DataBaseHelper;
 
 import java.util.List;
@@ -39,7 +39,7 @@ public class listaTarifas extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void cargarTarifas() {
-        TarifaConverter converter = new TarifaConverter();
+        Converter converter = new Converter();
         listaTarifas = converter.convertTo(db.transaccionesTarifa().listar());
         if (listaTarifas.isEmpty()) {
             Toast.makeText(getApplicationContext(), getString(R.string.sinTarifas), Toast.LENGTH_SHORT).show();

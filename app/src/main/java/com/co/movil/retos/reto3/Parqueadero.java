@@ -25,4 +25,9 @@ public class Parqueadero extends AppCompatActivity {
         Intent intent = new Intent(this, IngresoVehiculo.class);
         startActivity(intent);
     }
+
+    public void lanzarActivityVehiculos(View view) {
+        Intent intent = new Intent(this, listaVehiculos.class);
+        startActivity(intent);
+    }
 }
