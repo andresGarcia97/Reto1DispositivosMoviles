@@ -49,4 +49,9 @@
     <string name="vehiculosFacturados">Vehiculos que ingresaron</string>
     <string name="tipoTarifaIngreso">Tipo Tarifa</string>
     <string name="totalParqueadero">"Total: "</string>
+    <string name="seleccioneFechaInicial">Fecha Inicial</string>
+    <string name="sinVehiculos">No hay Vehiculos para listar</string>
+    <string name="seleccionefechaFinal">Fecha Final</string>
+    <string name="filtrar">Filtrar</string>
+    <string name="seleccioneAmbasFechas">Por favor Seleccione ambas fechas</string>
 </resources>
