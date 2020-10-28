@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -19,7 +20,6 @@ import com.co.movil.retos.converter.Converter;
 import com.co.movil.retos.persistencia.DataBaseHelper;
 
 import java.util.Calendar;
-import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -33,10 +33,10 @@ public class listaVehiculos extends AppCompatActivity implements DatePickerDialo
     public AdapterVehiculo adapterVehiculo;
     public Double cantidad;
     private Calendar fechaInicial = null;
-    private Calendar fechaFinal = null;
-    private Calendar fechaSeleccionada = null;
+    private Calendar fechaActual = null;
     public DatePickerDialog datePickerDialog;
-    private String dateSelected;
+    private String dateSelected = "";
+    public Button buttonSeleccionFecha;
 
     @Override
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -54,10 +54,8 @@ public class listaVehiculos extends AppCompatActivity implements DatePickerDialo
         vehiculos = converter.convertToVehiculo(db.transaccionesVehiculo().findByValor(1.0));
         listViewVehiculos = findViewById(R.id.listViewVehiculos);
         cantidad = 0.0;
-        fechaInicial = Calendar.getInstance();
-        fechaFinal = Calendar.getInstance();
-
-
+        buttonSeleccionFecha = findViewById(R.id.buttonSeleccionFecha);
+        fechaActual = Calendar.getInstance();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -97,39 +95,36 @@ public class listaVehiculos extends AppCompatActivity implements DatePickerDialo
 
     @Override
     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-        fechaSeleccionada = Calendar.getInstance();
-        fechaSeleccionada.set(Calendar.YEAR, year);
-        fechaSeleccionada.set(Calendar.MONTH, month);
-        fechaSeleccionada.set(Calendar.DAY_OF_MONTH, day);
-        dateSelected = "Fecha: " + year + " / " + (month + 1) + " / " + day;
-        Toast.makeText(getApplication(), dateSelected, Toast.LENGTH_SHORT).show();
-        datePickerDialog.dismiss();
-    }
-
-    public void seleccionarFechaFinal(View view) {
-        showDatePicker();
-        fechaFinal = fechaSeleccionada;
+        fechaInicial = Calendar.getInstance();
+        fechaInicial.set(Calendar.YEAR, year);
+        fechaInicial.set(Calendar.MONTH, month);
+        fechaInicial.set(Calendar.DAY_OF_MONTH, day);
+        dateSelected = "Desde: " + year + "/" + (month + 1) + "/" + day + " Hasta: " +
+                fechaActual.get(Calendar.YEAR) + "/" + (fechaActual.get(Calendar.MONTH) + 1) + "/" + fechaActual.get(Calendar.DAY_OF_MONTH);
     }
 
     public void seleccionarFechaInicial(View view) {
         showDatePicker();
-        fechaInicial = fechaSeleccionada;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     public void filtrarPorFechas(View view) {
-        Date dateFinal = fechaFinal.getTime();
-        Date dateInicial = fechaInicial.getTime();
-        System.out.println("::la fehca"+ dateInicial.toString());
+        if (fechaInicial == null || dateSelected.isEmpty()) {
+            Toast.makeText(getApplication(), R.string.noSeleccionoFecha, Toast.LENGTH_SHORT).show();
+        }
+        else if(fechaInicial.after(fechaActual)){
+            Toast.makeText(getApplication(), R.string.fechaInvalida, Toast.LENGTH_SHORT).show();
+        }
+        else {
+            buttonSeleccionFecha.setText(dateSelected);
+            Date dateInicial = fechaInicial.getTime();
 
+            this.vehiculos = this.vehiculos.stream()
+                    .filter(vehiculo -> vehiculo.getFechaSalida().after(dateInicial))
+                    .collect(Collectors.toList());
 
-       this.vehiculos = this.vehiculos.stream()
-                .filter(vehiculo -> vehiculo.getFechaSalida().before(dateFinal))
-               .filter(vehiculo -> vehiculo.getFechaSalida().after(dateInicial))
-
-                .collect(Collectors.toList());
-
-        crearListaVehiculos();
-        calcularTotal();
+            crearListaVehiculos();
+            calcularTotal();
+        }
     }
 }

@@ -54,4 +54,5 @@
     <string name="seleccionefechaFinal">Fecha Final</string>
     <string name="filtrar">Filtrar</string>
     <string name="seleccioneAmbasFechas">Por favor Seleccione ambas fechas</string>
+    <string name="fechaInvalida">La fecha es hoy ó no pasado todavia</string>
 </resources>
