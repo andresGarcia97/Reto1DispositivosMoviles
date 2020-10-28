@@ -19,7 +19,10 @@ import com.co.movil.retos.converter.Converter;
 import com.co.movil.retos.persistencia.DataBaseHelper;
 
 import java.util.Calendar;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class listaVehiculos extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
@@ -53,6 +56,8 @@ public class listaVehiculos extends AppCompatActivity implements DatePickerDialo
         cantidad = 0.0;
         fechaInicial = Calendar.getInstance();
         fechaFinal = Calendar.getInstance();
+
+
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -113,7 +118,17 @@ public class listaVehiculos extends AppCompatActivity implements DatePickerDialo
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     public void filtrarPorFechas(View view) {
-        // insertar codigo para filtrar fechas
+        Date dateFinal = fechaFinal.getTime();
+        Date dateInicial = fechaInicial.getTime();
+        System.out.println("::la fehca"+ dateInicial.toString());
+
+
+       this.vehiculos = this.vehiculos.stream()
+                .filter(vehiculo -> vehiculo.getFechaSalida().before(dateFinal))
+               .filter(vehiculo -> vehiculo.getFechaSalida().after(dateInicial))
+
+                .collect(Collectors.toList());
+
         crearListaVehiculos();
         calcularTotal();
     }
